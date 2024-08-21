@@ -1,4 +1,4 @@
-use std::time::SystemTime;
+use std::{fmt::Display, time::SystemTime};
 
 use bincode::{Decode, Encode};
 
@@ -8,12 +8,13 @@ pub enum CodeType {
     Fob,
 }
 
-impl ToString for CodeType {
-    fn to_string(&self) -> String {
-        match self {
-            CodeType::Pin => String::from("pin"),
-            CodeType::Fob => String::from("fob"),
-        }
+impl Display for CodeType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let code = match self {
+            CodeType::Pin => "pin",
+            CodeType::Fob => "fob",
+        };
+        write!(f, "{}", code)
     }
 }
 
