@@ -1,8 +1,8 @@
 use std::{fmt::Display, time::SystemTime};
 
-use bincode::{Decode, Encode};
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Encode, Decode)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum CodeType {
     Pin,
     Fob,
@@ -18,7 +18,7 @@ impl Display for CodeType {
     }
 }
 
-#[derive(Debug, Encode, Decode)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Audit {
     pub timestamp: SystemTime,
     pub code: i32,
@@ -26,7 +26,7 @@ pub struct Audit {
     pub success: bool,
 }
 
-#[derive(Debug, Encode, Decode)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum UserAction {
     Add(i32),
     Del(i32),
