@@ -1,6 +1,6 @@
 <!-- vim: set tw=80: -->
 
-# Doorsys Protocol
+# Doorsys protocol
 
 This repository contains the protocol messages exchanged between the firmware
 and the API. I went for a very simple approach here using
